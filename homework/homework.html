@@ -142,13 +142,22 @@
       }
     };
 
-    getAnchorChildren();
+    //getAnchorChildren();
 
 
     // 4. Hobbies
     // Define function getHobbies()
     // Find all checked options in the 'skills' select element.
     // Print the value and the contents.
+
+    function getHobbies(){
+      let skills = document.getElementsByName('skills')[0]
+      for(let skill of skills){
+        console.log(`value: ${skill.value}, content: ${skill.innerText}`)
+      }
+    };
+
+   
 
 
     // 5. Custom Attribute
