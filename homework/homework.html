@@ -212,18 +212,9 @@
     // NOTE: no alert should appear when user deselects a skill.
 
     let skills = document.getElementsByName('skills')[0];
-    for (let ele of skills) {
-      ele.addEventListener('onselect', pumpkin => {
-        console.log('event fired')
-        alert(`Are you sure that ${skills.value} is one of your skills?`)
-      })
-    }
-
-
-
-    // function skillAlert() {
-    //  
-    // };
+    skills.addEventListener('change', add => {
+      alert(`Are you sure that ${skills.value} is one of your skills?`)
+    })
 
     // 8. Favorite Color Event
     // NOTE: This is regarding the favoriteColor radio buttons.
