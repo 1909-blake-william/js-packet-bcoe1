@@ -132,20 +132,17 @@
     // Find all anchor elements with a <span> child.
     // Print the contents of <span>
     function getAnchorChildren() {
-      const children = document.getElementsByTagName('anchor');
-      let currentChildren;
-      for (let element of children) {
-        currentChildren = children.childNodes;
-        for(let ele of currentChildren){
-          console.log(ele)
-          //if(){
-
-          //}
+      const parent = document.getElementsByTagName('a');
+      let children;
+      for(let ele of parent){
+        children = ele.getElementsByTagName('span');
+        for(let eleC of children){
+            console.log(eleC)
         }
       }
     };
 
-    //getAnchorChildren();
+    getAnchorChildren();
 
 
     // 4. Hobbies
