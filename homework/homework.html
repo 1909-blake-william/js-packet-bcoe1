@@ -134,10 +134,10 @@
     function getAnchorChildren() {
       const parent = document.getElementsByTagName('a');
       let children;
-      for(let ele of parent){
+      for (let ele of parent) {
         children = ele.getElementsByTagName('span');
-        for(let eleC of children){
-            console.log(eleC)
+        for (let eleC of children) {
+          console.log(eleC)
         }
       }
     };
@@ -150,14 +150,14 @@
     // Find all checked options in the 'skills' select element.
     // Print the value and the contents.
 
-    function getHobbies(){
+    function getHobbies() {
       let skills = document.getElementsByName('skills')[0]
-      for(let skill of skills){
+      for (let skill of skills) {
         console.log(`value: ${skill.value}, content: ${skill.innerText}`)
       }
     };
 
-   //getHobbies();
+    //getHobbies();
 
     // 5. Custom Attribute
     // Define function getCustomAttribute()
@@ -167,7 +167,7 @@
 
     let getCustomAttribute = () => {
       const cust = document.querySelectorAll('[data-customAttr]');
-      for(let ele of cust){
+      for (let ele of cust) {
         console.log(`attribute = ${ele.getAttribute('data-customAttr')}, element = ${ele.tagName}.`)
       }
     }
@@ -184,12 +184,46 @@
     // Put the sum in the <span> element.
     // If values cannot be added, put "Cannot add" in the <span> element
 
+    let num1 = document.getElementsByClassName('nums')[0];
+    let num2 = document.getElementsByClassName('nums')[1];
+    let sum = document.getElementById('sum');
+    num1.addEventListener('keyup', add => {
+      let num = Number(num1.value) + Number(num2.value);
+      if (Number.isNaN(num) || num1.value === '' || num2.value === '') {
+        sum.innerText = 'Cannot add'
+      } else {
+        sum.innerText = num;
+      }
+    });
+    num2.addEventListener('keyup', add => {
+      let num = Number(num1.value) + Number(num2.value);
+      if (Number.isNaN(num) || num1.value === '' || num2.value === '') {
+        sum.innerText = 'Cannot add'
+      } else {
+        sum.innerText = num;
+      }
+    });
+
+
 
     // 7. Skills Event
     // When user selects a skill, create an alert with a message similar to:
     // 	"Are you sure CSS is one of your skills?"
     // NOTE: no alert should appear when user deselects a skill.
 
+    let skills = document.getElementsByName('skills')[0];
+    for (let ele of skills) {
+      ele.addEventListener('onselect', pumpkin => {
+        console.log('event fired')
+        alert(`Are you sure that ${skills.value} is one of your skills?`)
+      })
+    }
+
+
+
+    // function skillAlert() {
+    //  
+    // };
 
     // 8. Favorite Color Event
     // NOTE: This is regarding the favoriteColor radio buttons.
@@ -225,5 +259,7 @@
   </script>
 
 </body>
+
+<script src="homework.js"></script>
 
 </html>

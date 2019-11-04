@@ -10,14 +10,52 @@
 // 1. Fibonacci
 // Define function: fib(n)
 // Return the nth number in the fibonacci sequence.
-
+function fib(n) {
+    if(n <= 0){
+        console.log('Enter positive number')
+        return null;
+    } else if (n == 1){
+        return 0;
+    } else if (n == 2) {
+        return 1;
+    }
+    let num1 = 0;
+    let num2 = 1;
+    let newNum;
+    
+    for(let i = 3; i <= n; i++){
+        newNum = num1 + num2;
+        num1 = num2;
+        num2 = newNum;
+    }
+    
+    return num2;
+}
 
 
 // 2. Bubble Sort
 // Define function: bubbleSort(numArray)
 // Use the bubble sort algorithm to sort the array.
 // Return the sorted array.
-
+function bubbleSort(numArray){
+    //assume input is only numbers
+    for(let i = 0; i < numArray.length-1; i++){
+        let check = true;
+        for(let j = 0; j < numArray.length-1-i; j++){
+            if(numArray[j]>numArray[j+1]) {
+                let x = numArray[j];
+                numArray[j] = numArray[j+1];
+                numArray[j+1] = x;
+                check = false;
+            }
+        }
+        if(check){
+            return numArray;
+        }
+    }
+    return numArray;
+}
+//bubbleSort([4,3,6,1,2,9])
 
 
 // 3. Reverse String
