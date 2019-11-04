@@ -157,8 +157,7 @@
       }
     };
 
-   
-
+   //getHobbies();
 
     // 5. Custom Attribute
     // Define function getCustomAttribute()
@@ -166,6 +165,14 @@
     // Print the value of the attribute.
     // Print the element that has the attribute.
 
+    let getCustomAttribute = () => {
+      const cust = document.querySelectorAll('[data-customAttr]');
+      for(let ele of cust){
+        console.log(`attribute = ${ele.getAttribute('data-customAttr')}, element = ${ele.tagName}.`)
+      }
+    }
+
+    //getCustomAttribute();
 
     // 6. Sum Event
     // Regarding these elements:
