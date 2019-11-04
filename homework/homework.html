@@ -107,10 +107,10 @@
     // Print that element's contents.
 
     function getUSA() {
-      const USA = document.querySelectorAll('span')
-      console.log(USA)
+      const USA = document.querySelector('[data-customAttr="USA"]');
+      console.log(USA.innerText);
     };
-    // getUSA();
+    //getUSA();
 
     // 2. Sales
     // Define function getPeopleInSales()
@@ -118,19 +118,34 @@
     function getPeopleInSales() {
       const salesNames = document.getElementsByClassName('empName')
       for (let element of salesNames) {
-        if (element.nextSibling.nextSibling.innerText == 'Sales') {
+        if (element.nextElementSibling.innerText == 'Sales') {
           console.log(element.innerText)
         }
       };
     };
 
-    getPeopleInSales();
+    //  getPeopleInSales();
 
 
     // 3. Click Here
     // Define function getAnchorChildren()
     // Find all anchor elements with a <span> child.
     // Print the contents of <span>
+    function getAnchorChildren() {
+      const children = document.getElementsByTagName('anchor');
+      let currentChildren;
+      for (let element of children) {
+        currentChildren = children.childNodes;
+        for(let ele of currentChildren){
+          console.log(ele)
+          //if(){
+
+          //}
+        }
+      }
+    };
+
+    //getAnchorChildren();
 
 
     // 4. Hobbies
