@@ -93,8 +93,30 @@ function factorial(someNum) {
 // 5. Substring
 // Define function substring(someStr, length, offset)
 // Return the substring contained between offset and (offset + length) inclusively.
-// If incorrect input is entered, use the alert function and describe why the input was incorrect.
+// If incorrect input is entered, 
+// use the alert function and describe why the input was incorrect.
+function substring(someStr, length, offset) {
+    if (offset + length > someStr.length) {
+        let overIndex = offset + length - someStr.length;
+        alert(`String needs to be ${overIndex} longer with current offset and length.`)
+    } else if (typeof (someStr) !== 'string') {
+        alert('someStr needs to be a string.')
+    } else if (typeof (length) !== 'number' || !Number.isInteger(length) || length < 1) {
+        alert('length needs to be a positive integer.')
+    } else if (typeof (offset) !== 'number' || !Number.isInteger(offset) || offset < 0) {
+        alert('offset needs to be a non-negative integer.')
+    } else {
+        let x = someStr.split('');
+        let newString = '';
+        for (let i = offset; i <= length + offset-1; i++) {
+            newString += x[i]
+        }
+        return newString;
 
+    }
+};
+
+//console.log(substring('String1', 6, 1))
 
 
 // 6. Even Number
