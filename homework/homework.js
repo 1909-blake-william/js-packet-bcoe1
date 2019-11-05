@@ -124,6 +124,19 @@ function substring(someStr, length, offset) {
 // Return true if even, false if odd.
 // Do not use % operator.
 
+function isEven(someNum){
+   //assume inputs are numbers and not NaN or infinity
+   numString = someNum.toString();
+   lastNum = Number(numString.charAt(numString.length-1));
+   if('24680'.includes(lastNum)){
+       return true;
+   } else {
+       return false;
+   }
+
+}
+//console.log(isEven(11112.23))
+
 
 // 7. Palindrome
 // Define function isPalindrome(someStr)
