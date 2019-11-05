@@ -62,6 +62,18 @@ function bubbleSort(numArray){
 // Define function: reverseStr(someStr)
 // Reverse and return the String.
 
+function reverseStr(someStr){
+    let revString = '';
+    for(let i = someStr.length-1; i >= 0; i--){
+        revString = revString.concat(someStr.charAt(i));
+    }
+    console.log(revString);
+    return revString;
+}
+
+// reverseStr('hi blake');
+
+
 
 
 // 4. Factorial
