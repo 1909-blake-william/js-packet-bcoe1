@@ -195,6 +195,14 @@ function isPalindrome(someStr){
 // Splice the third element in the array.
 // Print length
 // The lengths should be one less than the original length.
+function spliceElement(someArr){
+    //assume inputs are of type array
+    console.log(someArr.length)
+    someArr.splice(2,1)
+    console.log(someArr.length)
+};
+
+spliceElement([1,2,3,4,5])
 
 
 // 12. Defining an object using a constructor
