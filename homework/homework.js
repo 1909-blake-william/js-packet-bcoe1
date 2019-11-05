@@ -108,7 +108,7 @@ function substring(someStr, length, offset) {
     } else {
         let x = someStr.split('');
         let newString = '';
-        for (let i = offset; i <= length + offset-1; i++) {
+        for (let i = offset; i <= length + offset - 1; i++) {
             newString += x[i]
         }
         return newString;
@@ -124,15 +124,15 @@ function substring(someStr, length, offset) {
 // Return true if even, false if odd.
 // Do not use % operator.
 
-function isEven(someNum){
-   //assume inputs are numbers and not NaN or infinity
-   numString = someNum.toString();
-   lastNum = Number(numString.charAt(numString.length-1));
-   if('24680'.includes(lastNum)){
-       return true;
-   } else {
-       return false;
-   }
+function isEven(someNum) {
+    //assume inputs are numbers and not NaN or infinity
+    numString = someNum.toString();
+    lastNum = Number(numString.charAt(numString.length - 1));
+    if ('24680'.includes(lastNum)) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
 //console.log(isEven(11112.23))
@@ -141,10 +141,10 @@ function isEven(someNum){
 // 7. Palindrome
 // Define function isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false
-function isPalindrome(someStr){
+function isPalindrome(someStr) {
     someStr = someStr.toLowerCase()
-    for(let i = 0; i<(someStr.length/2)+1; i++){
-        if(someStr.charAt(i) === someStr.charAt(someStr.length-i)){
+    for (let i = 0; i < (someStr.length / 2) + 1; i++) {
+        if (someStr.charAt(i) === someStr.charAt(someStr.length - i)) {
             return false;
         }
     }
@@ -181,12 +181,30 @@ function isPalindrome(someStr){
 // Print every property and it's value.
 
 
+function traverseObject(someObj){
+    let thisArr = Object.entries(someObj);
+    for(let i = 0; i < thisArr.length; i++){
+        console.log(`${thisArr[i][0]} is ${thisArr[i][1]}`)
+    }
+};
+
+
+
+
 // 10. Delete Element
 // Define function deleteElement(someArr)
 // Print length
 // Delete the third element in the array.
 // Print length
 // The lengths should be the same.
+function deleteElement(someArr) {
+    console.log(someArr.length)
+    delete someArr[2];
+    console.log(someArr.length)
+};
+
+//deleteElement('brian')
+
 
 
 // 11. Splice Element
@@ -195,14 +213,14 @@ function isPalindrome(someStr){
 // Splice the third element in the array.
 // Print length
 // The lengths should be one less than the original length.
-function spliceElement(someArr){
+function spliceElement(someArr) {
     //assume inputs are of type array
     console.log(someArr.length)
-    someArr.splice(2,1)
+    someArr.splice(2, 1)
     console.log(someArr.length)
 };
 
-spliceElement([1,2,3,4,5])
+//spliceElement([1,2,3,4,5])
 
 
 // 12. Defining an object using a constructor
@@ -210,7 +228,7 @@ spliceElement([1,2,3,4,5])
 // The following line should set a Person object to the variable john:
 // 	let john = new Person("John", 30);
 
-function Person(name, age){
+function Person(name, age) {
     this.name = name;
     this.age = age;
 };
@@ -224,13 +242,14 @@ function Person(name, age){
 // The following line should set a Person object to the variable john:
 // 	let john = getPerson("John", 30);
 
-function getPerson(name, age){
+function getPerson(name, age) {
     let person = {
-        name : name,
-        age : age
+        name: name,
+        age: age
     }
     return person;
 };
-// let john = getPerson("John",30);
+ let john = getPerson("John",30);
 // console.log(john)
 
+traverseObject(john)
