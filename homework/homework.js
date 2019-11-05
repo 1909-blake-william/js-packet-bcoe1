@@ -141,7 +141,17 @@ function isEven(someNum){
 // 7. Palindrome
 // Define function isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false
+function isPalindrome(someStr){
+    someStr = someStr.toLowerCase()
+    for(let i = 0; i<(someStr.length/2)+1; i++){
+        if(someStr.charAt(i) === someStr.charAt(someStr.length-i)){
+            return false;
+        }
+    }
+    return true;
+};
 
+//console.log(isPalindrome('racecar'))
 
 // 8. Shapes
 // Define function: printShape(shape, height, character)
