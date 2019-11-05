@@ -11,10 +11,10 @@
 // Define function: fib(n)
 // Return the nth number in the fibonacci sequence.
 function fib(n) {
-    if(n <= 0){
+    if (n <= 0) {
         console.log('Enter positive number')
         return null;
-    } else if (n == 1){
+    } else if (n == 1) {
         return 0;
     } else if (n == 2) {
         return 1;
@@ -22,13 +22,13 @@ function fib(n) {
     let num1 = 0;
     let num2 = 1;
     let newNum;
-    
-    for(let i = 3; i <= n; i++){
+
+    for (let i = 3; i <= n; i++) {
         newNum = num1 + num2;
         num1 = num2;
         num2 = newNum;
     }
-    
+
     return num2;
 }
 
@@ -37,19 +37,19 @@ function fib(n) {
 // Define function: bubbleSort(numArray)
 // Use the bubble sort algorithm to sort the array.
 // Return the sorted array.
-function bubbleSort(numArray){
+function bubbleSort(numArray) {
     //assume input is only numbers
-    for(let i = 0; i < numArray.length-1; i++){
+    for (let i = 0; i < numArray.length - 1; i++) {
         let check = true;
-        for(let j = 0; j < numArray.length-1-i; j++){
-            if(numArray[j]>numArray[j+1]) {
+        for (let j = 0; j < numArray.length - 1 - i; j++) {
+            if (numArray[j] > numArray[j + 1]) {
                 let x = numArray[j];
-                numArray[j] = numArray[j+1];
-                numArray[j+1] = x;
+                numArray[j] = numArray[j + 1];
+                numArray[j + 1] = x;
                 check = false;
             }
         }
-        if(check){
+        if (check) {
             return numArray;
         }
     }
@@ -62,9 +62,9 @@ function bubbleSort(numArray){
 // Define function: reverseStr(someStr)
 // Reverse and return the String.
 
-function reverseStr(someStr){
+function reverseStr(someStr) {
     let revString = '';
-    for(let i = someStr.length-1; i >= 0; i--){
+    for (let i = someStr.length - 1; i >= 0; i--) {
         revString = revString.concat(someStr.charAt(i));
     }
     console.log(revString);
@@ -79,7 +79,15 @@ function reverseStr(someStr){
 // 4. Factorial
 // Define function: factorial(someNum)
 // Use recursion to compute and return the factorial of someNum.
+function factorial(someNum) {
+    if (someNum == 1) {
+        return 1;
+    } else {
+        return someNum * factorial(someNum - 1);
+    }
+};
 
+//console.log(factorial(5))
 
 
 // 5. Substring
