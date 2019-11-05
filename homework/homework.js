@@ -157,7 +157,8 @@ function isPalindrome(someStr) {
 // Define function: printShape(shape, height, character)
 // shape is a String and is either "Square", "Triangle", "Diamond".
 // height is a Number and is the height of the shape. Assume the number is odd.
-// character is a String that represents the contents of the shape. Assume this String contains just one character.
+// character is a String that represents the contents of the shape.
+// Assume this String contains just one character.
 // Use a switch statement to determine which shape was passed in.
 // Use the console.log function to print the desired shape.
 // Example for printShape("Square", 3, "%");
@@ -175,20 +176,75 @@ function isPalindrome(someStr) {
 //  ***
 //   *
 
+function printShape(shape, height, character) {
+    //assume height is atleast 1
+    switch (shape) {
+        case 'Square': {
+            let row = '';
+            for (let i = 0; i < height; i++) {
+                row += character;
+            }
+            for (let i = 0; i < height; i++) {
+                console.log(row)
+                
+            }
+            break;
+        }
+        case 'Triangle': {
+            let row = '';
+            for (let i = 0; i < height; i++) {
+                row += character;
+                console.log(row)
+            }
+            break;
+        }
+        case 'Diamond': {
+            
+            if(height === 1){  
+                console.log(character);
+            } else {
+                let offsetLength = (height-1)/2;
+                let offset = '';
+                for(let i = 1; i <= offsetLength; i++){
+                    offset += ' '
+                }
+                let row = character;
+                
+                console.log(offset + row);
+                for(let i = 2; i < (height/2)+1.5; i++) { 
+                    //add 1.5 so middle row prints
+                    row += character + character;
+                    offset = offset.substr(0, offset.length-1)
+                    console.log(offset + row)
+                }
+                for(let i = (height/2)+1.5; i < height+1; i++) { 
+                    row = row.substr(0,row.length-2)
+                    offset += ' '
+                    console.log(offset + row)
+                }
+            }
+            break;
+        }
+        default:
+            console.log('only Triangle, Square, and Diamond are valid shapes.')
+            break;
+    }
+};
+
+//printShape('Diamond', 5, '*')
+
 
 // 9. Object literal
 // Define function traverseObject(someObj)
 // Print every property and it's value.
 
 
-function traverseObject(someObj){
+function traverseObject(someObj) {
     let thisArr = Object.entries(someObj);
-    for(let i = 0; i < thisArr.length; i++){
+    for (let i = 0; i < thisArr.length; i++) {
         console.log(`${thisArr[i][0]} is ${thisArr[i][1]}`)
     }
 };
-
-
 
 
 // 10. Delete Element
@@ -249,7 +305,7 @@ function getPerson(name, age) {
     }
     return person;
 };
- let john = getPerson("John",30);
+//let john = getPerson("John", 30);
 // console.log(john)
 
-traverseObject(john)
+//traverseObject(john)
