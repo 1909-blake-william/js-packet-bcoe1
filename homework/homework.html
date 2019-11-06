@@ -217,7 +217,7 @@
     // })
 
     skills.addEventListener('change', add);
-    function add(){
+    function add() {
       alert(`Are you sure that ${skills.value} is one of your skills?`)
     };
 
@@ -228,11 +228,57 @@
     // In this example, green is the new value and blue is the old value.
     // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
 
+    let radColors = document.getElementsByName('favoriteColor')
+    let oldColor;
+    for (let ele of radColors) {
+      ele.addEventListener('change', event => {
+        const color = event.target.value;
+        for (let ele of radColors) {
+          //console.log(ele)
+          //console.log(ele.parentNode)
+          ele.style.textColor = color;
+        }
+        if (oldColor) {
+          alert(`${color} is now your favorite color, ${oldColor} is not.`)
+          oldColor = color;
+        } else {
+          alert(`${color} is now your favorite color.`)
+          oldColor = color;
+        }
+      })
+    }
+
 
     // 9. Show/Hide Event
     // When user hovers over an employees name:
     // 	Hide the name if shown.
     // 	Show the name if hidden.
+
+    // let emp = document.getElementsByClassName('empName')
+    // for (let ele of emp) {
+    //   console.log(ele)
+    //   ele.style.hover
+    // };
+
+    //   addEventListener('onmouseover', event => {
+    //     console.log("event happened")
+    //     if (event.target.style.visibility === 'hidden') {
+    //       event.target.style.visibility = 'visible';
+    //     } else {
+    //       event.target.style.color = 'hidden';
+    //     }
+    //   })
+    // };
+
+
+    // function hoverFunc(name) {
+    //   console.log(name)
+    //   if (name.style.visibility === 'hidden') {
+    //     name.style.visibility = 'visible';
+    //   } else {
+    //     name.style.visibility = 'hidden';
+    //   }
+    // };
 
 
     // 10. Current Time
@@ -240,6 +286,31 @@
     // 	<h5 id="currentTime"></h5>
     // Show the current time in this element in this format: 9:05:23 AM
     // The time should be accurate to the second without having to reload the page.
+    function getTime(){
+    let today = new Date();
+    let hours = today.getHours();
+    let time;
+    let minutes = today.getMinutes();
+    if(minutes < 10){
+      minutes = `0${minutes}`;
+    }
+    let seconds = today.getSeconds()
+    if(seconds < 10){
+      seconds = `0${seconds}`
+    }
+    if(hours > 12) {
+      hours = hours - 12;
+      time = `${hours}:${minutes}:${seconds} PM`
+    } else{
+      time = `${hours}:${minutes}:${seconds} PM`
+    }
+    document.getElementById('currentTime').innerText = time;
+  }
+
+    setInterval(() => {
+    getTime();
+}, 1000);
+
 
 
     // 11. Delay
