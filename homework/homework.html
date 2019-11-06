@@ -233,11 +233,7 @@
     for (let ele of radColors) {
       ele.addEventListener('change', event => {
         const color = event.target.value;
-        for (let ele of radColors) {
-          //console.log(ele)
-          //console.log(ele.parentNode)
-          ele.style.textColor = color;
-        }
+
         if (oldColor) {
           alert(`${color} is now your favorite color, ${oldColor} is not.`)
           oldColor = color;
@@ -257,8 +253,6 @@
     let emp = document.getElementsByClassName('empName')
     for (let ele of emp) {
       ele.addEventListener('mouseover', event => {
-        console.log("event happened")
-       // event.target.style.color = 'red';
         if (event.target.style.color === 'white') {
           event.target.style.color = 'black';
         } else {
@@ -266,9 +260,6 @@
         }
       })
     };
-
-
-    
 
 
     // 10. Current Time
@@ -324,28 +315,14 @@
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
 
-    // function walkTheDOM(node, func){
-    //   console.log(node)
-    //   if(node[1]){
-    //   for(let i of node){
-    //     walkTheDOM(func(i),func)
-    //   }
-    // } else if (!node){
-      
-    // }
-    // else{
-    //    walkTheDOM(func(node),func)
-    // }
+    function walkTheDOM(node, func) {
+      node.childNodes.forEach(element => { 
+        func(element);
+        walkTheDOM(element, func);
+      });
+    }
 
-      
-    // }
-
-    // function func(node){
-    //   return node.childNodes
-      
-    // }
-
-    // walkTheDOM(document.getElementsByTagName('body'), func)
+   // walkTheDOM(document, console.log)
   </script>
 
 </body>
